@@ -1,8 +1,10 @@
 from flask import Flask
 from dotenv import load_dotenv
 from database import db
-from models import Contact, Task
-from routes import contact_bp, lead_bp
+from models import Contact, Task, Lead
+from routes import contact_bp
+from routes.leads import leads_bp
+from routes.activities import activities_bp
 from flask_cors import CORS
 import os
 
@@ -24,8 +26,8 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(contact_bp, url_prefix='/api')
-    app.register_blueprint(lead_bp, url_prefix='/api')
-  
+    app.register_blueprint(leads_bp, url_prefix='/api')
+    app.register_blueprint(activities_bp, url_prefix='/api')
 
     return app
 
