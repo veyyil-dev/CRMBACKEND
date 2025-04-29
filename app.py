@@ -5,6 +5,7 @@ from models import Contact, Task, Lead
 from routes import contact_bp
 from routes.leads import leads_bp
 from routes.activities import activities_bp
+from routes.tasks import tasks_bp
 from flask_cors import CORS
 import os
 
@@ -28,6 +29,7 @@ def create_app():
     app.register_blueprint(contact_bp, url_prefix='/api')
     app.register_blueprint(leads_bp, url_prefix='/api')
     app.register_blueprint(activities_bp, url_prefix='/api')
+    app.register_blueprint(tasks_bp, url_prefix='/api')
 
     return app
 
